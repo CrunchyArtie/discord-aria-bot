@@ -6,7 +6,9 @@
     "scripts": {
         "dev": "ts-node-dev --respawn --transpile-only --poll ./src/index.ts",
         "build": "tsc",
-        "start": "npm run build && node ./dist/index.js"
+        "start": "npm run build && node ./dist/index.js",
+        "lint": "eslint -f unix \"src/**/*.{ts,tsx}\"",
+        "doc": "typedoc"
     },
     "keywords": [
         "discord",
@@ -24,9 +26,12 @@
     "dependencies": {
         "@discordjs/builders": "^0.6.0",
         "@discordjs/rest": "^0.1.0-canary.0",
+        "@typescript-eslint/eslint-plugin": "~2.6.1",
+        "@typescript-eslint/parser": "~2.6.1",
         "discord-api-types": "^0.23.1",
         "discord.js": "^13.2.0",
         "dotenv": "^10.0.0",
+        "eslint": "~6.6.0",
         "firebase": "^9.1.2",
         "lodash": "^4.17.21",
         "mathjs": "^9.5.1",
@@ -38,7 +43,9 @@
         "@types/mathjs": "^9.4.2",
         "@types/node": "^16.10.3",
         "@types/node-fetch": "^3.0.3",
+        "eslint-plugin-tsdoc": "^0.2.14",
         "ts-node-dev": "^1.1.8",
+        "typedoc": "^0.22.5",
         "typescript": "^4.4.3"
     }
 }

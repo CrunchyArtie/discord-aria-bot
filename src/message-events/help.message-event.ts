@@ -18,6 +18,9 @@ const getLine = (me: MessageEventInterface) => {
     return line;
 }
 
+/**
+ * Display Help event, able to display others message events.
+ */
 export const HelpMessageEvent: MessageEventInterface = {
     key: 'help',
     alias: ['h'],

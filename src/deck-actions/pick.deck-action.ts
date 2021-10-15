@@ -4,6 +4,9 @@ import * as math from 'mathjs';
 import {DeckManager} from './deck-management/deck-manager';
 import {Log} from '../index';
 
+/**
+ * Action used to pick a number of cards in the given deck
+ */
 export const PickDeckAction: DeckActionInterface = {
     command: 'pick',
     alias: ['p'],

@@ -2,11 +2,12 @@
 import {Client, Intents} from 'discord.js';
 import {CommandDeployer} from './deploy-command';
 import {commands} from './commands';
-import {events} from './events';
 import {config} from './config';
 import {Logger} from 'tslog';
+import {InteractionCreateEvent, MessageCreateEvent, ReadyEvent} from './events';
+import {EventInterface} from './interfaces/event.interface';
 
-export const Log = new Logger({name: 'Jotun', minLevel: <any> config.LOG_MIN_LEVEL})
+export const Log = new Logger({name: 'Jotun', minLevel: <any>config.LOG_MIN_LEVEL})
 
 Log.silly('Let\'s go !');
 
@@ -21,13 +22,19 @@ const client = new Client({
 });
 const commandDeployer = new CommandDeployer(commands);
 
-for (const event of events) {
+const events: EventInterface[] = [
+    new MessageCreateEvent(),
+    new ReadyEvent(),
+    new InteractionCreateEvent()
+];
+
+events.forEach((event) => {
     if (event.once) {
         client.once(event.name, (...args) => event.execute(...args));
     } else {
         client.on(event.name, (...args) => event.execute(...args));
     }
-}
+})
 
 commandDeployer.deploy()
     .then(async () => {
@@ -36,5 +43,5 @@ commandDeployer.deploy()
         // Login to Discord with your client's token
         await client.login(token);
     })
-    // .catch((error) => Log.error(error));
+    .catch((error) => Log.error(error));
 

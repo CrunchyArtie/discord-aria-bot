@@ -1,10 +1,13 @@
 import {EventInterface} from '../interfaces/event.interface';
 import {commands} from '../commands';
 import {Log} from '../index';
+import {Interaction} from 'discord.js';
 
-export const InteractionCreateEvent: EventInterface = {
-    name: 'interactionCreate',
-    execute:     async (interaction) => {
+export class InteractionCreateEvent implements EventInterface<'interactionCreate'> {
+    public readonly name = 'interactionCreate' as const;
+
+    public async execute(interaction: Interaction): Promise<void | undefined> {
+        // @ts-ignore
         Log.trace(`${interaction.user.tag} in #${interaction.channel?.name} triggered an interaction.`);
 
         if (!interaction.isCommand()) return;
@@ -19,5 +22,5 @@ export const InteractionCreateEvent: EventInterface = {
             Log.error(error);
             await interaction.reply({content: 'There was an error while executing this command!', ephemeral: true});
         }
-    },
+    }
 }

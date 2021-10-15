@@ -82,6 +82,9 @@ export class Deck {
         return result;
     }
 
+    /**
+     * User friendly list of all cards
+     */
     public toString(): string {
         return `[${this.cards.map(c => c.toString()).join(', ')}]`;
     }

@@ -2,6 +2,9 @@ import {MessageEventInterface} from '../interfaces/message-event.interface';
 import {DiceRoll} from 'rpg-dice-roller';
 import {Log} from '../index';
 
+/**
+ * Message event triggered to roll dices with {@link https://greenimp.github.io/rpg-dice-roller/ | rpg-dice-roller}
+ */
 export const RollMessageEvent: MessageEventInterface = {
     key: 'roll',
     alias: ['r'],

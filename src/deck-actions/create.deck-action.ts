@@ -4,6 +4,9 @@ import * as math from 'mathjs';
 import {DeckManager} from './deck-management/deck-manager';
 import {Log} from '../index';
 
+/**
+ * Action used to create a new Deck (and override the already existed deck)
+ */
 export const CreateDeckAction: DeckActionInterface = {
     command: 'create',
     alias: ['c'],

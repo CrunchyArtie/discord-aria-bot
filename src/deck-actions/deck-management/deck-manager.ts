@@ -5,6 +5,9 @@ import {Log} from '../../index';
 
 const collection = 'decks';
 
+/**
+ * Singleton used to manage a deck instance
+ */
 export class DeckManager {
 
     private static instance: DeckManager;
@@ -21,9 +24,9 @@ export class DeckManager {
     }
 
     /**
-     * Save a deck
+     * Save a deck in the database
      * @param deck
-     * @param identifier
+     * @param identifier used as a unique key to reference the deck (to find it by example)
      */
     public async save(deck: Deck, identifier: string): Promise<void> {
         Log.trace('deck-manager::save::26', identifier);
@@ -66,7 +69,7 @@ export class DeckManager {
     }
 
     /**
-     * Return a new Deck
+     * Return a new Deck, not shuffled with all cards
      */
     public newDeck(): Deck {
         Log.trace('deck-manager::newDeck::52');

@@ -10,3 +10,4 @@ dist
 /firestore.indexes.json
 /firestore.rules
 /.firebaserc
+/docs/

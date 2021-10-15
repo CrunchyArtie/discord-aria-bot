@@ -17,6 +17,9 @@ function getLine(me: DeckActionInterface) {
     return line;
 }
 
+/**
+ *  Message event triggered to manipulate a {@link Deck}
+ */
 export const DeckMessageEvent: MessageEventInterface = {
     key: 'deck',
     alias: ['d'],

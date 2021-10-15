@@ -5,10 +5,11 @@ import {config} from '../config';
 import {HelpMessageEvent} from '../message-events/help.message-event';
 import {Log} from '../index';
 
-export const MessageCreateEvent: EventInterface = {
-    name: 'messageCreate',
-    execute: async (message: Message) => {
-        if (message.author.bot) return
+export class MessageCreateEvent implements EventInterface<"messageCreate">{
+    public name = 'messageCreate' as const;
+
+    public async execute(message: Message): Promise<void | undefined> {
+        if (message.author.bot) return;
 
         const content = message.content.split(' ')[0];
 
@@ -30,4 +31,5 @@ export const MessageCreateEvent: EventInterface = {
             }
         }
     }
+
 }

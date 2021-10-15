@@ -1,6 +1,9 @@
+import {DiscordBotConfigInterface} from './interfaces/discord-bot-config.interface';
+
 require('dotenv').config()
 
-export const config = {
+
+export const config: DiscordBotConfigInterface = {
     DISCORD_TOKEN: process.env.DISCORD_BOT_TOKEN || '',
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID || '',
     DISCORD_GUILD_ID: process.env.DISCORD_GUILD_ID || '',
