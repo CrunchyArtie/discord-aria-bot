@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "Bot discord utilisé pour accompagner les joueurs et maîtres de jeu lors de leurs partie de Aria",
     "main": "dist/index.js",
+    "engines": {
+        "node": "16.x"
+    },
     "scripts": {
         "dev": "ts-node-dev --respawn --transpile-only --poll ./src/index.ts",
         "build": "tsc",
