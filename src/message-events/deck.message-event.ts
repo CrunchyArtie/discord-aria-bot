@@ -44,7 +44,9 @@ ${DeckActions.map(me => `    - ${getLine(me)}`).join('\n')}`);
             )
 
             if (!action) {
-                await message.reply('deckdeckdeck');
+                await message.reply(`Attends là, tu veux faire quoi ?
+Voici la liste des commandes:
+${DeckActions.map(me => `    - ${getLine(me)}`).join('\n')}`);
                 return;
             } else {
                 try {

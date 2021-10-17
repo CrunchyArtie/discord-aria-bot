@@ -25,7 +25,7 @@ export const CreateDeckAction: DeckActionInterface = {
                 Log.error(e);
                 throw new Error(`Hola ! Ce n'est pas un nombre acceptable ça !`);
             }
-            if (howMany < 1) throw new Error(`Avec un chiffre positif s'il te plait`);
+            if (howMany < 0) throw new Error(`Avec un chiffre positif s'il te plait, même 0 ça me va`);
 
             newDeck.pickCards(newDeck.length - howMany);
         }

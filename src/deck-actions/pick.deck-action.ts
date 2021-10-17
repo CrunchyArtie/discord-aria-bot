@@ -31,7 +31,7 @@ export const PickDeckAction: DeckActionInterface = {
         const cards = options.deck.pickCards(howMany);
         await DeckManager.getInstance().save(options.deck, options.userIdentifier);
 
-        const response = cards.length <= 0 ? 'Plus de cartes :(' : cards.join(', ')
+        const response = cards.length <= 0 ? 'Plus de cartes :(' : `\`${cards.join(', ')}\``
 
         await options.message.reply(`${response}`);
     }

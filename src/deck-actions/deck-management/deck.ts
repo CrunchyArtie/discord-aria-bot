@@ -88,4 +88,12 @@ export class Deck {
     public toString(): string {
         return `[${this.cards.map(c => c.toString()).join(', ')}]`;
     }
+
+    /**
+     * Push cards on the top of the deck
+     * @param cards
+     */
+    public addCards(cards: Card[]) {
+        this.cards.unshift(...cards);
+    }
 }
